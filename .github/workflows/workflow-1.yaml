@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: build Docker image
-        run : docker build -t my-nginx:${{github.event.inputs.image_tag}} .
+        run : docker build -t my-nginx:${{ inputs.image_tag }} .
 
       - name: show the docker selected tag
-        run : echo "build docker image for ${{github.event.inputs.image_tag}}" 
+        run : echo "build docker image for ${{ inputs.image_tag }}" 
