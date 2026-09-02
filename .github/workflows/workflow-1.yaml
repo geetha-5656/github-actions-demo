@@ -1,12 +1,12 @@
-name: github actions workflows
+name: github action workflow
 on: push
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout the source code
+      - name: checkout source code
         uses: actions/checkout@v4
 
-      - name: print hello message
-        run: echo "hello"
+      - name: build Docker image
+        run : docker build -t my-nginx:v1 .
