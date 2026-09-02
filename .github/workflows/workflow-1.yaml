@@ -1,4 +1,4 @@
-```yaml
+
 name: github action workflow
 
 on:
@@ -27,5 +27,5 @@ jobs:
 
       - name: show the docker selected tag
         run: echo "build docker image for ${{ github.event.inputs.image_tag || 'latest' }}"
-```
+
 
