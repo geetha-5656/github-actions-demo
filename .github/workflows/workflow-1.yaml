@@ -3,7 +3,13 @@ on:
   push:
     branches:
       - main
-      - feature/*
+      - feature/u*
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: "docker image tag"
+        required: true
+        default: latest
 
 
 jobs:
@@ -14,4 +20,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: build Docker image
-        run : docker build -t my-nginx:v1 .
+        run : docker build -t my-nginx:${{github.event.input.image_tag}} .
+
+      - name: show the docker selected tag
+        run : echo "build docker image for ${{github.event.input.image_tag}}" 
